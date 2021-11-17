@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col box">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
+              <div class="form-group">
+                  <label for="email">Admin Email address:</label>
+                  <input type="email" class="form-control" placeholder="Enter email" id="email" formControlName="email">
+                  <small *ngIf="hasError('email')" [class]="hasError('email')?'error':'' ">
+                    <div *ngIf= "f.email.errors" >
+                      <span *ngIf="f.email.errors.required">Email is a required field</span>
+                    </div>
+                  </small>
+                </div>
+                <div class="form-group">
+                  <label for="pwd">Admin Password:</label>
+                  <input type="password" class="form-control" placeholder="Enter password" id="pwd" formControlName="password">
+                  <small *ngIf="hasError('password')" [class]="hasError('password')?'error':'' ">
+                    <div *ngIf= "f.password.errors" >
+                      <span *ngIf="f.password.errors.required">Password is a required field</span>
+                    </div>
+                  </small>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block" style="margin: auto;">Admin Login</button>
+                <small *ngIf="flag" [class]="flag?'error':'' ">
+                  <div *ngIf="flag" class="alert alert-danger mt-2" role="alert">
+                    Invalid Credentials
+                  </div>
+                </small>
+            </form> 
+        </div>
+        <div class="col"></div>
+    </div>
+</div>

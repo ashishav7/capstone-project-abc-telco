@@ -1,0 +1,27 @@
+<app-admin-navbar></app-admin-navbar>
+<div class="container mt-5">
+    <table class="table">
+        <caption>List of users</caption>
+        <thead>
+        <tr>
+            <th scope="col">Emp Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Address</th>
+            <th scope="col">Pincode</th>
+            <th scope="col">Role</th>
+        </tr>
+
+        </thead>
+        <tbody>
+        <tr *ngFor="let u of users;">
+            <th scope="row">{{u.id}}</th>
+            <td>{{u.name}}</td>
+            <td>{{u.email}}</td>
+            <td>{{u.address}}</td>
+            <td>{{u.pincode}}</td>
+            <td>{{u.role}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
