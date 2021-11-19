@@ -1,6 +1,12 @@
 <app-admin-navbar></app-admin-navbar>
-<div class="container mt-5">
-    <table class="table">
+<div class="container mt-4">
+    <div class="btn-group float-right" role="group" aria-label="Basic example">
+        <button type="button" class="badge badge-info" (click)="filter('all')">All</button>
+        <button type="button" class="badge badge-warning" (click)="filter('customer')">Customers</button>
+        <button type="button" class="badge badge-danger" (click)="filter('manager')">Managers</button>
+        <button type="button" class="badge badge-success" (click)="filter('engineer')">Engineers</button>
+    </div>
+    <table class="table ">
         <caption>List of users</caption>
         <thead>
         <tr>

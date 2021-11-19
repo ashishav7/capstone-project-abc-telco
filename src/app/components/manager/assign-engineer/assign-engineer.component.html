@@ -1,0 +1,35 @@
+<app-manager-navbar></app-manager-navbar>
+<div class="row mt-3">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <h3>Ticket Details</h3>
+      <ul class="list-group">
+        <li class="list-group-item">Ticket Description : {{ticket.description}} </li>
+        <li class="list-group-item">Ticket Date : {{ticket.date}}</li>
+        <li class="list-group-item">Ticket Pincode: {{ticket.pincode}}</li>
+      </ul>
+        <table class="table mt-3">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Engineer Name</th>
+                <th scope="col">Engineer Email</th>
+                <th scope="col">Engineer Address</th>
+                <th scope="col">Engineer Pincode</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let er of engineerList;let i =index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{er.name}}</td>
+                <td>{{er.email}} </td>
+                <td>{{er.address}}</td>
+                <td>{{er.pincode}}</td>
+                <td><a class="abc" (click)="assignEngineer(ticket,er.id)" >Assign</a></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <div class="col-2"></div>
+</div>

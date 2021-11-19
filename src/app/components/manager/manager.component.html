@@ -1,1 +1,32 @@
-<p>manager works!</p>
+<app-manager-navbar></app-manager-navbar>
+
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Tkt Description</th>
+                <th scope="col">Tkt Status</th>
+                <th scope="col">Raised on</th>
+                <th scope="col">Raised By</th>
+                <th scope="col">Pincode</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let t of tickets;let i = index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{t.description}}</td>
+                <td><span [class]="(t.status=='Resolved')?'badge badge-success':(t.status=='Assigned')?'badge badge-warning':'badge badge-info'">{{t.status}}</span></td>
+                <td>{{t.date}}</td>
+                <td>{{t.raised_by}}</td>
+                <td>{{t.pincode}}</td>
+                <td><button class="abc" routerLink="/manager/assign/{{t.id}}/{{t.pincode}}" [disabled] ="t.status!='Raised'">Assign an Engineer</button></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <div class="col-2"></div>
+</div>

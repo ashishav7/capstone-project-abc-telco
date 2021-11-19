@@ -9,11 +9,13 @@ import { APIService } from 'src/app/services/api.service';
 export class ListComponent implements OnInit {
   
   public users:any;
+  public tempUsers:any
   constructor(private apiService:APIService) { 
       apiService.getUsers().subscribe(
       res=>{
         console.log(res);
         this.users = res;
+        this.tempUsers = res;
       },
       err=>{
         console.log(err);
@@ -22,6 +24,18 @@ export class ListComponent implements OnInit {
   }
   
   ngOnInit(): void {
+  }
+
+  
+  public filter(status:any){
+    if(status == 'all'){
+      this.users = this.tempUsers;
+    }
+    else{
+      this.users = this.tempUsers.filter(function(tempUser:any){
+        return tempUser.role == status;
+      });
+    }
   }
 
 }

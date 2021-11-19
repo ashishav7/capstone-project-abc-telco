@@ -1,1 +1,33 @@
-<p>engineer works!</p>
+<app-engineer-navbar></app-engineer-navbar>
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Tkt Description</th>
+                <th scope="col">Raised on</th>
+                <th scope="col">Tkt Status</th>
+                <th scope="col">Action</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let t of tickets;let i = index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{t.description}}</td>
+                <td>{{t.date}}</td>
+                <td>
+                    <select class="form-select" (change)="changeStatus($event)" [disabled]="t.status=='Resolved'">
+                      <option [selected]>{{t.status}}</option>
+                      <option *ngIf="t.status=='Assigned'">Resolved</option>
+                    </select>
+                </td>
+                <td><button class="abc" (click)="updateStatus(t.id)" [disabled]="t.status=='Resolved'">Update Status</button></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <div class="col-2"></div>
+</div>

@@ -11,6 +11,7 @@ import { UserApiService } from 'src/app/services/user-api.service';
 export class LoginComponent implements OnInit {
   public loginForm:FormGroup;
   private creds:any;
+  private user:any;
   public credFlag:boolean = false;
   constructor(private formBuilder:FormBuilder,private userApiService:UserApiService,private router:Router) { 
     this.loginForm = this.formBuilder.group({
@@ -31,6 +32,8 @@ export class LoginComponent implements OnInit {
         res=>{
           // console.log(res);
           this.credFlag = false;
+          this.user = res;
+          sessionStorage.setItem("id",this.user.id);
           if(this.creds.role == "customer"){
             this.router.navigate(['customer']);
           }

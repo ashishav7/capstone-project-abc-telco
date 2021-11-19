@@ -1,0 +1,16 @@
+<app-cust-navbar></app-cust-navbar>
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-8">
+            <form [formGroup]="tktForm" (ngSubmit)="onSubmit(tktForm)">
+                <div class="form-group row mt-5">
+                    <label for="description">Description</label>
+                    <textarea id="description" class="form-control rounded-0" name="description" rows="4" formControlName="description"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>

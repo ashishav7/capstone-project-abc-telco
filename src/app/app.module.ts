@@ -15,9 +15,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { CustomerComponent } from './components/customer/customer.component';
 import { ManagerComponent } from './components/manager/manager.component';
 import { EngineerComponent } from './components/engineer/engineer.component';
-import { CustNavbarComponent } from './components/customer/cust-navbar/cust-navbar.component';
 import { ManagerNavbarComponent } from './components/manager/manager-navbar/manager-navbar.component';
 import { EngineerNavbarComponent } from './components/engineer/engineer-navbar/engineer-navbar.component';
+import { CustomerModule } from './components/customer/customer.module';
+import { AssignEngineerComponent } from './components/manager/assign-engineer/assign-engineer.component';
 
 @NgModule({
   declarations: [
@@ -31,9 +32,9 @@ import { EngineerNavbarComponent } from './components/engineer/engineer-navbar/e
     CustomerComponent,
     ManagerComponent,
     EngineerComponent,
-    CustNavbarComponent,
     ManagerNavbarComponent,
-    EngineerNavbarComponent
+    EngineerNavbarComponent,
+    AssignEngineerComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +42,8 @@ import { EngineerNavbarComponent } from './components/engineer/engineer-navbar/e
     FormsModule,
     ReactiveFormsModule,
     AdminModule,
-    HttpClientModule
+    HttpClientModule,
+    CustomerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cust-navbar',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustNavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
+    if(sessionStorage.getItem("id") == null){
+      this.router.navigate(['']);
+      alert("you cannot go back as you are not logged in");
+    }
   }
-
+  public logout(){
+    sessionStorage.clear();
+    this.router.navigate(['']);
+  }
 }

@@ -11,4 +11,12 @@ export class UserApiService {
   public loginUser(creds:any){
     return this.htppClient.post(this.url+"/login",creds);
   }
+
+  public getTickets(id:any){
+    return this.htppClient.get(this.url+"/tickets/"+id);
+  }
+  
+  public addTicket(id:any,ticket:any){
+    return this.htppClient.post(this.url+"/tickets/"+id,ticket);
+  }
 }

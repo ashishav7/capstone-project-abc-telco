@@ -1,0 +1,29 @@
+<app-cust-navbar></app-cust-navbar>
+<div class="container">
+    <div class="row">
+        <div class="col">
+          
+        </div>
+        <div class="col-8">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Tkt Description</th>
+                <th scope="col">Tkt Status</th>
+                <th scope="col">Raised on</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let t of tickets;let i = index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{t.description}}</td>
+                <td><span [class]="(t.status=='Resolved')?'badge badge-success':(t.status=='Assigned')?'badge badge-warning':'badge badge-info'">{{t.status}}</span></td>
+                <td>{{t.date}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>

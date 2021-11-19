@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-engineer-navbar',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EngineerNavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { 
+    // if(sessionStorage.getItem("id") == null){
+    //   this.router.navigate(['']);
+    //   alert("you cannot go back as you are not logged in");
+    // }
+  }
 
   ngOnInit(): void {
   }
-
+  public logout(){
+    sessionStorage.clear();
+    this.router.navigate(['']);
+  }
 }
